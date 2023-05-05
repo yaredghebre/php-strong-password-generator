@@ -16,7 +16,7 @@ include __DIR__ . "/functions.php";
 
 <body>
     <div class="container">
-        <h1 class="text-center text-secondary mt-5">Strong Password Generator</h1>
+        <h1 class="text-center text-warning mt-5">Strong Password Generator</h1>
         <h2 class="text-center text-white my-5">Genera una password sicura</h2>
 
         <div class="row flex-column text-white fs-5 p-4 g-3">

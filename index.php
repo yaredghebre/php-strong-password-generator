@@ -1,22 +1,5 @@
 <?php
-$alphabet = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+');
-
-function generate_password($length = 8) {
-
-    $alphabet = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+');
-    $password = "";
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $alphabet[array_rand($alphabet)];
-    }
-    return $password;
-}
-
-if (isset($_GET["length"]) && $_GET["length"] >= 6 && $_GET["length"] <= 12) {
-    $password = generate_password($_GET["length"]);
-} else {
-    $password = "";
-}
-
+include __DIR__ . "/functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +28,7 @@ if (isset($_GET["length"]) && $_GET["length"] >= 6 && $_GET["length"] <= 12) {
                     <div class="form-group row mb-5">
                         <label for="length" class="col-sm-3 col-form-label">Lunghezza Password:</label>
                         <div class="col-sm-6 d-flex align-items-center gap-5">
-                            <input type="number" name="length" id="length" max="12" min="6" class="form-control w-50 mr-5" placeholder="Inserisci il numero di caratteri" value="<?php echo $_GET["length"] ?? "" ?>">
-
-                            <!--PASSWORD GENERATA -->
-                            <?php if ($password) { ?>
-                                <div class="form-control w-50 text-success"><?php echo $password; ?></div>
-                            <?php } ?>
-
+                            <input type="number" name="length" id="length" max="12" min="6" class="form-control w-50 mr-5" placeholder="Inserisci il numero di caratteri" value="">
                         </div>
                     </div>
 
@@ -98,7 +75,6 @@ if (isset($_GET["length"]) && $_GET["length"] >= 6 && $_GET["length"] <= 12) {
                             </div>
                         </div>
                     </div>
-
 
                     <!-- BOTTONE -->
                     <div class="form-group row">
